@@ -1,0 +1,36 @@
+.navList {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 10px;
+  align-items: center;
+  column-gap: 40px;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
+}
+
+@media (max-width: 768px) {
+  .navList {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 40px;
+    font-size: 26px;
+    position: fixed;
+    left: -100%;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(32, 31, 31);
+    z-index: 9;
+    transition: left 0.3s ease-in;
+  }
+
+  .active {
+    left: 0;
+  }
+}
+
+
