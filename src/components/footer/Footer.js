@@ -1,4 +1,5 @@
 import "./style.css";
+import React, { useState, useEffect } from 'react';
 
 import instagram from "./../../img/icons/instagram.svg";
 import twitter from "./../../img/icons/twitter.svg";
@@ -6,6 +7,17 @@ import linkedIn from "./../../img/icons/linkedIn.svg";
 import gitHub from "./../../img/icons/gitHub.svg";
 
 const Footer = () => {
+  const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentYear(new Date().getFullYear());
+    }, 1000); // Обновление каждую секунду
+
+    return () => {
+      clearInterval(interval); // Очистка интервала при размонтировании компонента
+    };
+  }, []);
   return (
     <footer className="footer">
       <div className="container">
@@ -33,7 +45,7 @@ const Footer = () => {
             </li>
           </ul>
           <div className="copyright">
-            <p>© 2023 frontend-dev.com</p>
+            <p>© {currentYear} frontend-dev.com</p>
           </div>
         </div>
       </div>
